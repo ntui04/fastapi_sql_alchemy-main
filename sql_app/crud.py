@@ -3,10 +3,12 @@
 
 # Add parent directory to the sys.path list
 # sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# crud.py
 
 from sqlalchemy.orm import Session
-
+from .schemas import UserUpdate
 from . import models, schemas
+
 
 
 def get_user(db: Session, user_id: int):
@@ -40,3 +42,26 @@ def create_user_item(db: Session, item: schemas.ItemCreate, user_id: int):
     db.commit()
     db.refresh(db_item)
     return db_item
+
+
+def update_user(db: Session, user_id: int, user_update: UserUpdate):
+    db_user = db.query(models.User).filter(models.User.id == user_id).first()
+    if db_user:
+        for attr, value in user_update.dict().items():
+            if value is not None:
+                setattr(db_user, attr, value)
+        db.commit()
+        db.refresh(db_user)
+        return db_user
+    else:
+        return None
+
+
+def delete_user(db: Session, user_id: int):
+    user = db.query(models.User).filter(models.User.id == user_id).first()
+    if user:
+        db.delete(user)
+        db.commit()
+        return user
+    else:
+        return None

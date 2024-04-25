@@ -4,7 +4,8 @@ import os
 
 # Add parent directory to the sys.path list
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from pydantic import BaseModel
+from pydantic import BaseModel ,EmailStr
+from typing import Optional
 
 
 class ItemBase(BaseModel):
@@ -39,3 +40,8 @@ class User(UserBase):
 
     class Config:
         from_attributes = True
+
+
+class UserUpdate(BaseModel):
+    email: Optional[EmailStr] = None
+    is_active: Optional[bool] = None        
