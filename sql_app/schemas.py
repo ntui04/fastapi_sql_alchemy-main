@@ -22,7 +22,7 @@ class Item(ItemBase):
     owner_id: int
 
     class Config:
-        from_attributes = True
+        orm_mode = True
 
 
 class UserBase(BaseModel):
@@ -39,7 +39,7 @@ class User(UserBase):
     items: list[Item] = []
 
     class Config:
-        from_attributes = True
+        orm_mode = True
 
 
 class UserUpdate(BaseModel):

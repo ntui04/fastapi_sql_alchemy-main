@@ -11,7 +11,7 @@ from sqlalchemy.orm import sessionmaker
 
 #SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
 #SQLALCHEMY_DATABASE_URL = "postgresql://postgres:1234567890@localhost:5432/postgres"
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:costa1057@localhost:5432/sampledb"
+SQLALCHEMY_DATABASE_URL = "postgresql://postgres:1057costa@localhost:5432/sampledb"
 #SQLALCHEMY_DATABASE_URL = "postgresql://{postgres}:{1234567890}@{localhost}:{5432}/{postgres}"
 #SQLALCHEMY_DATABASE_URL = "postgresql://{postgres}:{1234567890}@{localhost}:5432/{postgres}"
 #SQLALCHEMY_DATABASE_URL = "postgresql://postgres:1234567890@localhost:5432/edwin"
